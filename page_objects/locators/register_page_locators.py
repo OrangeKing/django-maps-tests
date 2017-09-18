@@ -1,0 +1,40 @@
+'''
+Module representing locators for registration page.
+'''
+
+from selenium.webdriver.common.by import By
+
+
+class RegisterPageLocators(object):
+    '''
+    Class contining locators for objects within a page.
+    All register screen locators should go here.
+
+    :USER_NAME: registration username form locator (By.CSS_SELECTOR).
+
+    :PASSWORD: registration pasword form locator (By.CSS_SELECTOR).
+
+    :EMAIL: registration email form locator (By.CSS_SELECTOR).
+
+    :SUBMIT_BUTTON: registration submit button locator (By.CSS_SELECTOR).
+
+    :MUSIC_BUTTON: button activating the music popup (By.CSS_SELECTOR).
+
+    :STOP_MUSIC_BUTTON: button that stops music (By.CSS_SELECTOR).
+
+    :HIDE_MUSIC_POPUP: button that hides music popup (By.CSS_SELECTOR).
+
+    '''
+
+    USER_NAME = (By.CSS_SELECTOR, 'input[name="username"]')
+    PASSWORD = (By.CSS_SELECTOR, 'input[name="password"]')
+    EMAIL = (By.CSS_SELECTOR, 'input[name="email"]')
+    SUBMIT_BUTTON = (By.CSS_SELECTOR, 'button[type="submit"]')
+
+    # Music popup
+    MUSIC_BUTTON = (By.CSS_SELECTOR, 'span[class*="glyphicon-music"]')
+    STOP_MUSIC_BUTTON = (By.XPATH, '//*[@id="player"]')
+    HIDE_MUSIC_POPUP = (By.CSS_SELECTOR, 'button[data-dismiss]')
+
+    # delete after making home_page
+    REGISTER = (By.CSS_SELECTOR, 'span[class*="glyphicon-user"]')
