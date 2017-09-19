@@ -14,7 +14,7 @@ CONFIGURATION_PATH = os.path.join(SCRIPT_DIR, "../configuration/conf.json")
 def before_all(context):
     context.driver = webdriver.Chrome()
     context.driver.maximize_window()
-    context.driver.get("http://django-maps.herokuapp.com/")
+    context.driver.get("http://localhost:8000")
 
     # Read json file
     with open(CONFIGURATION_PATH) as json_file:

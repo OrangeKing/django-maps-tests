@@ -26,15 +26,15 @@ class RegisterPageLocators(object):
 
     '''
 
-    USER_NAME = (By.CSS_SELECTOR, 'input[name="username"]')
-    PASSWORD = (By.CSS_SELECTOR, 'input[name="password"]')
-    EMAIL = (By.CSS_SELECTOR, 'input[name="email"]')
-    SUBMIT_BUTTON = (By.CSS_SELECTOR, 'button[type="submit"]')
+    USER_NAME = (By.CSS_SELECTOR, 'input[id="register_username"]')
+    PASSWORD = (By.CSS_SELECTOR, 'input[id="register_password"]')
+    EMAIL = (By.CSS_SELECTOR, 'input[id="register_email"]')
+    SUBMIT_BUTTON = (By.CSS_SELECTOR, 'button[id="register_confirm"]')
 
     # Music popup
     MUSIC_BUTTON = (By.CSS_SELECTOR, 'span[class*="glyphicon-music"]')
     STOP_MUSIC_BUTTON = (By.XPATH, '//*[@id="player"]')
-    HIDE_MUSIC_POPUP = (By.CSS_SELECTOR, 'button[data-dismiss]')
+    HIDE_MUSIC_POPUP = (By.CSS_SELECTOR, 'button[id="hide_rick"]')
 
     # delete after making home_page
     REGISTER = (By.CSS_SELECTOR, 'span[class*="glyphicon-user"]')

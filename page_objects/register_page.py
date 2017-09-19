@@ -38,14 +38,15 @@ class RegisterPage(BasePage):
             BasePageElement(self.driver).input_text(
                 RegisterPageLocators.PASSWORD, password)
         if email != " ":
-            BasePageElement(self).input_text(RegisterPageLocators.EMAIL, email)
+            BasePageElement(self.driver).input_text(
+                RegisterPageLocators.EMAIL, email)
 
     def press_submit(self):
         '''
         Clicks at the "submit" button to confirm register process with given
         credentials and sign up.
         '''
-
+        self.driver.implicitly_wait(3)
         BasePageElement(self.driver).click_element_and_wait(
             RegisterPageLocators.SUBMIT_BUTTON)
 
@@ -56,8 +57,9 @@ class RegisterPage(BasePage):
 
         BasePageElement(self.driver).click_element_and_wait(
             RegisterPageLocators.MUSIC_BUTTON)
-        BasePageElement(self.driver).click_element_and_wait(
-            RegisterPageLocators.STOP_MUSIC_BUTTON)
+        self.driver.switch_to_active_element()
+        # BasePageElement(self.driver).click_element_and_wait(
+        #    RegisterPageLocators.STOP_MUSIC_BUTTON)
         BasePageElement(self.driver).click_element_and_wait(
             RegisterPageLocators.HIDE_MUSIC_POPUP)
 
