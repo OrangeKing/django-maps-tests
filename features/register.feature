@@ -5,13 +5,13 @@ As a User
 I should be able to create new account
 
     @generated_user
-    @chat
    Scenario: [SUNNY] Create a new user with unique name and valid credentials
     Given app is open
     When I click register button
     And I fill sign up form with generated credentials
     And I stop the music form playing in the background
-    Then I press submit button on sign up form
+    And I press submit button on sign up form
+    Then User with generated credentials should exist in application databases
 
   """" Scenario: [SUNNY] Logging with previously registered user credentials
     Given app is opened

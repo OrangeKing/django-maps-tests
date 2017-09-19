@@ -20,6 +20,12 @@ def stop_music(context):
     RegisterPage(context.driver).stop_music()
 
 
-@then("I press submit button on sign up form")
+@when("I press submit button on sign up form")
 def submit_reg(context):
     RegisterPage(context.driver).press_submit()
+
+
+@then("User with generated credentials should exist in application database")
+def check_user_in_database(context):
+    assert RegisterPage(context.driver).check_usr_in_db(
+        context.timestamp_username)
