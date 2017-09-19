@@ -13,6 +13,7 @@ I should be able to create new account
     And I press submit button on sign up form
     Then User with generated credentials should exist in application database
 
+    @rainy_scenarios
   Scenario: [RAINY] Logging with previously registered user's credentials
     Given app is open
     When I click register button
@@ -20,37 +21,30 @@ I should be able to create new account
     And I stop the music form playing in the background
     And I press submit button on sign up form
     Then Registration should fail
-
-
-""""
-   @rainy_scenarios
-   Scenario: [RAINY] Create a new user with weak password
-    Given app is opened
-    When I click button with partial text "register"
-    And I put 'empty_user' and 'weakpass' field on sign up form
-    And I press submit button on sign up form
-    Then there should be no user named 'empty_user'
-
-   @rainy_scenarios
+    
+    @rainy_scenarios
    Scenario: [RAINY] Create a new user with empty login
-    Given app is opened
-    When I click button with partial text "register"
-    And I put ' ' and 'weakpass' field on sign up form
+    Given app is open
+    When I click register button
+    And I do not fill 'username' input 
+    And I stop the music form playing in the background
     And I press submit button on sign up form
-    Then there should be no user named 'empty_user'
+    Then Registration should fail
 
-   @rainy_scenarios
+    @rainy_scenarios
    Scenario: [RAINY] Create a new user with empty password
-    Given app is opened
-    When I click button with partial text "register"
-    And I put 'empty_user' and ' ' field on sign up form
+    Given app is open
+    When I click register button
+    And I do not fill 'password' input 
+    And I stop the music form playing in the background
     And I press submit button on sign up form
-    Then there should be no user named 'empty_user'
+    Then Registration should fail
 
-   @rainy_scenarios
-   Scenario: [RAINY] Create a new user with already existing name
-    Given app is opened
-    When I click button with partial text "register"
-    And I put valid credentials from configuration file on sign up form
+    @rainy_scenarios
+   Scenario: [RAINY] Create a new user with with empty email
+    Given app is open
+    When I click register button
+    And I do not fill 'email' input 
+    And I stop the music form playing in the background
     And I press submit button on sign up form
-    Then I should recieve 'register' error
+    Then Registration should fail

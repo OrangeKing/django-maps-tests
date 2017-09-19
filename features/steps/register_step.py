@@ -1,7 +1,6 @@
 from behave import *
 
 from page_objects.register_page import RegisterPage
-from time import sleep
 
 
 @given("app is open")
@@ -13,6 +12,19 @@ def check_app_open(context):
 def fill_reg_form(context):
     RegisterPage(context.driver).fill_fields(
         context.username, context.password, context.email)
+
+
+@when("I do not fill '{what}' input")
+def fill_part_reg_form(context, what):
+    if what == "username":
+        RegisterPage(context.driver).fill_fields(
+            " ", context.password, context.email)
+    if what == "password":
+        RegisterPage(context.driver).fill_fields(
+            context.username, " ", context.email)
+    if what == "email":
+        RegisterPage(context.driver).fill_fields(
+            context.username, context.password, " ")
 
 
 @when("I fill sign up form with generated credentials")
@@ -40,5 +52,3 @@ def check_user_in_database(context):
 @then("Registration should fail")
 def check_user_not_in_database(context):
     assert RegisterPage(context.driver).check_not_register()
-    assert RegisterPage(context.driver).check_usr_in_db(
-        context.username)

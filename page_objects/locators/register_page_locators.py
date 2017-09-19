@@ -40,6 +40,8 @@ class RegisterPageLocators(object):
 
     # delete after making home_page
     REGISTER = (By.CSS_SELECTOR, 'span[class*="glyphicon-user"]')
+    # delete after making home_page
+    LOGIN = (By.CSS_SELECTOR, 'span[class*="glyphicon-log-in"]')
 
     # Register error popup
     REGISTER_ERROR = (By.CSS_SELECTOR, 'div[class*="alert-danger"]')

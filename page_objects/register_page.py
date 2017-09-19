@@ -71,6 +71,11 @@ class RegisterPage(BasePage):
         BasePageElement(self.driver).click_element_and_wait(
             RegisterPageLocators.REGISTER)
 
+    # delete after making home_page
+    def open_login(self):
+        BasePageElement(self.driver).click_element_and_wait(
+            RegisterPageLocators.LOGIN)
+
     def check_not_register(self):
         if BasePageElement(self.driver).get_element(RegisterPageLocators.REGISTER_ERROR):
             return True
