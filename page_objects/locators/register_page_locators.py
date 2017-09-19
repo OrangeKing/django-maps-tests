@@ -24,6 +24,8 @@ class RegisterPageLocators(object):
 
     :HIDE_MUSIC_POPUP: button that hides music popup (By.CSS_SELECTOR).
 
+    :REGISTER_ERROR: alert that shows after unsuccessful registration (By.CSS_SELECTOR).
+
     '''
 
     USER_NAME = (By.CSS_SELECTOR, 'input[id="register_username"]')
@@ -33,8 +35,11 @@ class RegisterPageLocators(object):
 
     # Music popup
     MUSIC_BUTTON = (By.CSS_SELECTOR, 'span[class*="glyphicon-music"]')
-    STOP_MUSIC_BUTTON = (By.XPATH, '//*[@id="player"]')
+    STOP_MUSIC_BUTTON = (By.CSS_SELECTOR, 'div[class*="target"]')
     HIDE_MUSIC_POPUP = (By.CSS_SELECTOR, 'button[id="hide_rick"]')
 
     # delete after making home_page
     REGISTER = (By.CSS_SELECTOR, 'span[class*="glyphicon-user"]')
+
+    # Register error popup
+    REGISTER_ERROR = (By.CSS_SELECTOR, 'div[class*="alert-danger"]')

@@ -11,14 +11,18 @@ I should be able to create new account
     And I fill sign up form with generated credentials
     And I stop the music form playing in the background
     And I press submit button on sign up form
-    Then User with generated credentials should exist in application databases
+    Then User with generated credentials should exist in application database
 
-  """" Scenario: [SUNNY] Logging with previously registered user credentials
-    Given app is opened
-    When I put generated timestamp credentials on login form
-    And I press submit button on login form
-    Then I should be logged in as a generated user
+  Scenario: [RAINY] Logging with previously registered user's credentials
+    Given app is open
+    When I click register button
+    And I fill sign up form with credentials of already registered user
+    And I stop the music form playing in the background
+    And I press submit button on sign up form
+    Then Registration should fail
 
+
+""""
    @rainy_scenarios
    Scenario: [RAINY] Create a new user with weak password
     Given app is opened

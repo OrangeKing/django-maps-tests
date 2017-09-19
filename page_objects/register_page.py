@@ -48,7 +48,6 @@ class RegisterPage(BasePage):
         Clicks at the "submit" button to confirm register process with given
         credentials and sign up.
         '''
-        self.driver.implicitly_wait(3)
         BasePageElement(self.driver).click_element_and_wait(
             RegisterPageLocators.SUBMIT_BUTTON)
 
@@ -59,9 +58,11 @@ class RegisterPage(BasePage):
 
         BasePageElement(self.driver).click_element_and_wait(
             RegisterPageLocators.MUSIC_BUTTON)
-        self.driver.switch_to_active_element()
-        # BasePageElement(self.driver).click_element_and_wait(
-        #    RegisterPageLocators.STOP_MUSIC_BUTTON)
+        frame = self.driver.find_element_by_css_selector("iframe[src]")
+        self.driver.switch_to_frame(frame)
+        BasePageElement(self.driver).click_element_and_wait(
+            RegisterPageLocators.STOP_MUSIC_BUTTON)
+        self.driver.switch_to_default_content()
         BasePageElement(self.driver).click_element_and_wait(
             RegisterPageLocators.HIDE_MUSIC_POPUP)
 
@@ -69,6 +70,10 @@ class RegisterPage(BasePage):
     def open_register(self):
         BasePageElement(self.driver).click_element_and_wait(
             RegisterPageLocators.REGISTER)
+
+    def check_not_register(self):
+        if BasePageElement(self.driver).get_element(RegisterPageLocators.REGISTER_ERROR):
+            return True
 
     def check_usr_in_db(self, username):
         '''
