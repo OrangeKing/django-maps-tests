@@ -7,3 +7,18 @@ Tests for web application - Django Maps.
 ~~~
 https://gitlab.mobica.com/int_noka/django-maps
 ~~~
+
+##Install requirements
+~~~
+pip install -rrequirements.txt
+~~~
+
+## Run tests for desktop browser
+~~~
+behave $(cat feature_order.txt)
+~~~
+
+## Run tests for mobile browser
+~~~
+behave -D mobile $(cat feature_order.txt)
+~~~
