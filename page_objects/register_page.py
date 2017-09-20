@@ -8,6 +8,7 @@ from page_objects.base_page import BasePage
 from page_objects.elements.elements import BasePageElement
 
 import psycopg2
+from time import sleep
 
 
 class RegisterPage(BasePage):
@@ -58,11 +59,15 @@ class RegisterPage(BasePage):
 
         BasePageElement(self.driver).click_element_and_wait(
             RegisterPageLocators.MUSIC_BUTTON)
+
         frame = self.driver.find_element_by_css_selector("iframe[src]")
         self.driver.switch_to_frame(frame)
+
         BasePageElement(self.driver).click_element_and_wait(
             RegisterPageLocators.STOP_MUSIC_BUTTON)
+
         self.driver.switch_to_default_content()
+
         BasePageElement(self.driver).click_element_and_wait(
             RegisterPageLocators.HIDE_MUSIC_POPUP)
 
@@ -70,6 +75,10 @@ class RegisterPage(BasePage):
     def open_register(self):
         BasePageElement(self.driver).click_element_and_wait(
             RegisterPageLocators.REGISTER)
+
+    def open_mobile_navbar(self):
+        BasePageElement(self.driver).click_element_and_wait(
+            RegisterPageLocators.TOOGLE)
 
     # delete after making home_page
     def open_login(self):
@@ -81,6 +90,7 @@ class RegisterPage(BasePage):
             return True
 
     def check_usr_in_db(self, username):
+        sleep(2)
         '''
         Verify whether user was properly registered by looking up user database.
 

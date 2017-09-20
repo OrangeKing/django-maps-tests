@@ -13,7 +13,12 @@ CONFIGURATION_PATH = os.path.join(SCRIPT_DIR, "../configuration/conf.json")
 
 def before_all(context):
     context.driver = webdriver.PhantomJS()
-    context.driver.maximize_window()
+
+    if context.config.userdata['mobile']:
+        context.driver.set_window_size(360, 640)
+    else:
+        context.driver.maximize_window()
+
     context.driver.get("http://localhost:8000")
 
     # Read json file

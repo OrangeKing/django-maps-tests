@@ -1,6 +1,7 @@
 from behave import *
 
 from page_objects.login_page import LoginPage
+from page_objects.register_page import RegisterPage
 
 
 @when("I put valid credentials from configuration file on login form")
@@ -15,4 +16,6 @@ def submit_modal_login(context):
 
 @then("I should be logged in as a user provided in config")
 def check_login_navbar(context):
+    if context.config.userdata['mobile']:
+        RegisterPage(context.driver).open_mobile_navbar()
     assert LoginPage(context.driver).check_login(context.username)
