@@ -36,6 +36,7 @@ class RegisterPageLocators(object):
     # Music popup
     MUSIC_BUTTON = (By.CSS_SELECTOR, 'span[class*="glyphicon-music"]')
     STOP_MUSIC_BUTTON = (By.CSS_SELECTOR, 'div[class*="target"]')
+    EXIT_FULLSCREEN_MUSIC = (By.CSS_SELECTOR, 'button[class="fullscreen"]')
     HIDE_MUSIC_POPUP = (By.CSS_SELECTOR, 'button[id="hide_rick"]')
 
     # delete after making home_page

@@ -71,6 +71,19 @@ class RegisterPage(BasePage):
         BasePageElement(self.driver).click_element_and_wait(
             RegisterPageLocators.HIDE_MUSIC_POPUP)
 
+    def stop_mobile_music(self):
+        BasePageElement(self.driver).click_element_and_wait(
+            RegisterPageLocators.MUSIC_BUTTON)
+
+        frame = self.driver.find_element_by_css_selector("iframe[src]")
+        self.driver.switch_to_frame(frame)
+        BasePageElement(self.driver).click_element_and_wait(
+            RegisterPageLocators.STOP_MUSIC_BUTTON)
+
+        BasePageElement(self.driver).click_element_and_wait(
+            RegisterPageLocators.EXIT_FULLSCREEN_MUSIC)
+        self.driver.switch_to_default_content()
+
     # delete after making home_page
     def open_register(self):
         BasePageElement(self.driver).click_element_and_wait(

@@ -15,10 +15,15 @@ pip install -r requirements.txt
 
 ## Run tests for desktop browser
 ~~~
-behave $(cat feature_order.txt)
+behave -D mobile="no" $(cat feature_order.txt)
 ~~~
 
 ## Run tests for mobile browser
 ~~~
-behave -D mobile $(cat feature_order.txt)
+behave -D mobile="default" $(cat feature_order.txt)
+~~~
+
+## Run tests for the Iphone 6
+~~~
+behave -D mobile="iphone" $(cat feature_order.txt)
 ~~~

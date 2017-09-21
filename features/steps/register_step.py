@@ -35,7 +35,10 @@ def fill_gen_reg_form(context):
 
 @when("I stop the music form playing in the background")
 def stop_music(context):
-    RegisterPage(context.driver).stop_music()
+    if context.config.userdata['mobile'] != 'default' and context.config.userdata['mobile'] != 'no' and context.config.userdata['mobile'] != 'android':
+        RegisterPage(context.driver).stop_mobile_music()
+    else:
+        RegisterPage(context.driver).stop_music()
 
 
 @when("I press submit button on sign up form")
